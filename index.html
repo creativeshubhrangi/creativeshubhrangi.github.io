@@ -11,10 +11,22 @@
         body {
             font-family: 'Roboto', sans-serif;
             overflow: hidden;
-            animation: gradient 15s ease infinite; /* Animation for gradient */
-            background: linear-gradient(45deg, #ff6b81, #f7c1bb, #c56cf0, #5f27cd, #0abde3);
-            background-size: 400% 400%; /* Allows the gradient to transition smoothly */
+            animation: gradient 15s ease infinite;
+            background: linear-gradient(135deg, #ff6b81, #f7c1bb, #c56cf0, #5f27cd, #0abde3);
+            background-size: 300% 300%;
+            min-height: 100vh; /* Ensure background covers entire height */
+            background-attachment: fixed; /* Fix background for mobile responsiveness */
         }
+
+        /* Slower animation and smoother transitions for mobile devices */
+        @media (max-width: 768px) {
+            body {
+                background-size: 400% 400%; /* Adjust background size for mobile */
+                animation: gradient 20s ease infinite; /* Slow down animation */
+            }
+        }
+
+
         @keyframes gradient {
             0% {
                 background-position: 0% 50%;
@@ -26,45 +38,62 @@
                 background-position: 0% 50%;
             }
         }
-        .particles-js-canvas-el {
-            position: absolute;
+
+        /* Ensure particles span the entire viewport */
+        #particles-js {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
             z-index: 0;
         }
+
         .content {
             position: relative;
-            z-index: 1; /* Ensure content is on top of particles */
+            z-index: 1;
         }
+
         .social-block {
-            width: 64px; /* Adjust width as needed */
-            height: 64px; /* Adjust height as needed */
+            width: 64px;
+            height: 64px;
             display: flex;
             justify-content: center;
             align-items: center;
             transition: transform 0.3s, box-shadow 0.3s;
-            border-radius: 50%; /* Circular icons */
-            background-color: rgba(255, 255, 255, 0.8); /* Light background for contrast */
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.8);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
+
         .social-block:hover {
             transform: scale(1.1);
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
         }
+
         .header-text {
             color: #ffffff;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-            font-family: 'Pacifico', cursive; /* Artistic font for the name */
-            font-size: 4rem; /* Adjust size as needed */
+            font-family: 'Pacifico', cursive;
+            font-size: 4rem;
         }
+
         .description {
             color: #ffffff;
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
         }
+
+        /* Media Query for Portrait Mode Adjustments */
+        @media (orientation: portrait) {
+            body {
+                background-size: 200% 200%; /* Make gradient smoother */
+                animation: gradient 20s ease infinite; /* Slow down animation */
+            }
+        }
     </style>
 </head>
 <body>
-    <div id="particles-js" class="particles-js-canvas-el"></div>
+    <div id="particles-js"></div>
     <div class="flex h-full content">
         <!-- Main Content -->
         <div class="flex-1 flex flex-col justify-between p-6">
@@ -79,18 +108,17 @@
                     You can also order custom handmade items, allowing me to bring your ideas to life! </br>
                     Join me on this creative journey, and let's celebrate the beauty of craftsmanship together!</p>
                     <div class="border-t border-gray-400 w-24 my-4"></div>
-                <!-- New Prompt Line -->
                 <p class="description text-lg mt-4">Click on the buttons below to follow me or to place an order!</p>
                 
                 <!-- Social Media Icons -->
                 <div class="flex space-x-6 mt-8">
-                    <a href="#" class="social-block">
+                    <a href="https://www.instagram.com/creativeshubhrangi/" class="social-block">
                         <img src="https://img.icons8.com/clouds/500/instagram-new--v3.png" alt="Instagram" class="w-full h-full">
                     </a>
-                    <a href="#" class="social-block">
+                    <a href="tel:+919369618681" class="social-block">
                         <img src="https://img.icons8.com/bubbles/500/ringer-volume.png" alt="Phone" class="w-full h-full">
                     </a>
-                    <a href="#" class="social-block">
+                    <a href="https://api.whatsapp.com/send?phone=916390287318&text=Hi" class="social-block">
                         <img src="https://img.icons8.com/clouds/500/whatsapp.png" alt="Whatsapp" class="w-full h-full">
                     </a>
                 </div>
@@ -102,7 +130,7 @@
         particlesJS('particles-js', {
             particles: {
                 number: {
-                    value: 100, // Number of particles
+                    value: 100,
                     density: {
                         enable: true,
                         value_area: 800
