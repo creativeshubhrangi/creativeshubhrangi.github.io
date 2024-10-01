@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            overflow: hidden;
+            animation: gradient 15s ease infinite; /* Animation for gradient */
+            background: linear-gradient(45deg, #ff6b81, #f7c1bb, #c56cf0, #5f27cd, #0abde3);
+            background-size: 400% 400%; /* Allows the gradient to transition smoothly */
+        }
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        .particles-js-canvas-el {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+        .content {
+            position: relative;
+            z-index: 1; /* Ensure content is on top of particles */
+        }
+        .social-block {
+            width: 64px; /* Adjust width as needed */
+            height: 64px; /* Adjust height as needed */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-radius: 50%; /* Circular icons */
+            background-color: rgba(255, 255, 255, 0.8); /* Light background for contrast */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        .social-block:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+        }
+        .header-text {
+            color: #ffffff;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+            font-family: 'Pacifico', cursive; /* Artistic font for the name */
+            font-size: 4rem; /* Adjust size as needed */
+        }
+        .description {
+            color: #ffffff;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div id="particles-js" class="particles-js-canvas-el"></div>
+    <div class="flex h-full content">
+        <!-- Main Content -->
+        <div class="flex-1 flex flex-col justify-between p-6">
+            <div class="flex flex-col items-start text-left mt-32 ml-16">
+                <div class="flex justify-between items-center">
+                    <div class="header-text">Welcome to the Artistic Journey of CreativeShubhrangi!</div>
+                </div>
+                <div class="border-t border-gray-400 w-24 my-4"></div>
+                <p class="description text-lg">I'm Shubhrangi Shukla, an art and craft enthusiast, passionate about creating beautiful handmade works. </br>
+                    From vibrant paintings to unique flower pots, each piece reflects my creative vision and inspiration drawn from the world around me. </br>
+                    I love sharing my artistic process and connecting with fellow art lovers on social media. </br>
+                    You can also order custom handmade items, allowing me to bring your ideas to life! </br>
+                    Join me on this creative journey, and let's celebrate the beauty of craftsmanship together!</p>
+                    <div class="border-t border-gray-400 w-24 my-4"></div>
+                <!-- New Prompt Line -->
+                <p class="description text-lg mt-4">Click on the buttons below to follow me or to place an order!</p>
+                
+                <!-- Social Media Icons -->
+                <div class="flex space-x-6 mt-8">
+                    <a href="#" class="social-block">
+                        <img src="https://img.icons8.com/clouds/500/instagram-new--v3.png" alt="Instagram" class="w-full h-full">
+                    </a>
+                    <a href="#" class="social-block">
+                        <img src="https://img.icons8.com/bubbles/500/ringer-volume.png" alt="Phone" class="w-full h-full">
+                    </a>
+                    <a href="#" class="social-block">
+                        <img src="https://img.icons8.com/clouds/500/whatsapp.png" alt="Whatsapp" class="w-full h-full">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        particlesJS('particles-js', {
+            particles: {
+                number: {
+                    value: 100, // Number of particles
+                    density: {
+                        enable: true,
+                        value_area: 800
+                    }
+                },
+                color: {
+                    value: ['#ff6b81', '#f7c1bb', '#c56cf0', '#5f27cd', '#0abde3']
+                },
+                shape: {
+                    type: ['circle', 'edge'],
+                    stroke: {
+                        width: 0,
+                        color: '#000000'
+                    },
+                    polygon: {
+                        nb_sides: 5
+                    },
+                },
+                opacity: {
+                    value: 0.5,
+                    random: false,
+                    anim: {
+                        enable: false,
+                        speed: 1,
+                        opacity_min: 0.1,
+                        sync: false
+                    }
+                },
+                size: {
+                    value: 5,
+                    random: true,
+                    anim: {
+                        enable: false,
+                        speed: 40,
+                        size_min: 0.1,
+                        sync: false
+                    }
+                },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: '#ffffff',
+                    opacity: 0.4,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 6,
+                    direction: 'none',
+                    random: false,
+                    straight: false,
+                    out_mode: 'out',
+                    bounce: false,
+                    attract: {
+                        enable: false,
+                        rotateX: 600,
+                        rotateY: 1200
+                    }
+                }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: 'repulse'
+                    },
+                    onclick: {
+                        enable: true,
+                        mode: 'push'
+                    },
+                    resize: true
+                },
+                modes: {
+                    grab: {
+                        distance: 400,
+                        line_linked: {
+                            opacity: 1
+                        }
+                    },
+                    bubble: {
+                        distance: 400,
+                        size: 40,
+                        duration: 2,
+                        opacity: 8,
+                        speed: 3
+                    },
+                    repulse: {
+                        distance: 100,
+                        duration: 0.4
+                    },
+                    push: {
+                        particles_nb: 4
+                    },
+                    remove: {
+                        particles_nb: 2
+                    }
+                }
+            },
+            retina_detect: true
+        });
+    </script>
+</body>
+</html>
